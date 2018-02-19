@@ -1,3 +1,8 @@
+var http = require('http');
+var port = process.env.PORT || 8000;
+
+var counter = 0;
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -43,4 +48,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+http.createServer(app).listen(port);
+
+// console info message
+console.log('Server running at http://127.0.0.1:' + port);
